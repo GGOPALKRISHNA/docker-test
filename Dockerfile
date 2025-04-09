@@ -5,10 +5,10 @@ RUN apt-get install -y curl
 RUN curl --fsSL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt-get install -y nodejs   
 
-COPY index.js index.js
-COPY package.json package.json
-COPY package-lock.json package-lock.json
+COPY package.json package-lock.json ./
 
 RUN npm install
+
+COPY index.js .
 
 ENTRYPOINT ["node", "index.js"] 
